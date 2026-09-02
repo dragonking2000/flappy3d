@@ -1,0 +1,13 @@
+{
+  "name": "skybound-kingdom",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node --check src/game.js && node --check server.js",
+    "preview": "node server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
