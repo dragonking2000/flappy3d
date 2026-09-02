@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071d39" />
+    <title>Skybound Kingdom — 3D Flying Adventure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main id="game-shell">
+      <canvas id="game" aria-label="Skybound Kingdom game canvas"></canvas>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Skybound Kingdom home">
+          <span class="brand-mark">☁</span>
+          <span>SKYBOUND<br /><b>KINGDOM</b></span>
+        </a>
+        <nav>
+          <button class="nav-link active" data-action="play">PLAY</button>
+          <button class="nav-link" data-action="about">ABOUT</button>
+        </nav>
+        <div class="sound-controls">
+          <button class="icon-button" id="sound" aria-label="Toggle sound">♪</button>
+          <button class="icon-button" id="fullscreen" aria-label="Fullscreen">⛶</button>
+        </div>
+      </header>
+
+      <section class="hero" id="hero">
+        <p class="eyebrow"><span>✦</span> A 3D FLYING ADVENTURE</p>
+        <h1>FLAP. FLY.<br /><em>RULE THE SKY.</em></h1>
+        <p class="intro">Soar through a magical kingdom, dodge ancient towers,<br />collect golden coins, and chase the horizon.</p>
+        <button class="play-button" id="start">PLAY NOW <span>→</span></button>
+        <div class="hint"><kbd>SPACE</kbd><span>or</span><span class="mouse">◉</span><span>to flap</span></div>
+      </section>
+
+      <section class="hud hidden" id="hud">
+        <div class="score-block"><small>SCORE</small><strong id="score">0</strong></div>
+        <div class="coin-block"><span class="coin-icon">◆</span><strong id="coins">0</strong></div>
+        <div class="progress"><span id="progress"></span></div>
+      </section>
+
+      <section class="game-over hidden" id="game-over">
+        <p class="eyebrow"><span>✦</span> FLIGHT COMPLETE</p>
+        <h2>THE SKY<br /><em>CALLS AGAIN.</em></h2>
+        <p>Score <b id="final-score">0</b> · Coins <b id="final-coins">0</b></p>
+        <button class="play-button" id="restart">FLY AGAIN <span>↻</span></button>
+      </section>
+
+      <footer>
+        <p><span class="pulse"></span> BEST PLAYED WITH SOUND</p>
+        <p>© 2026 SKYBOUND KINGDOM</p>
+      </footer>
+
+      <div class="about-panel hidden" id="about-panel">
+        <button id="close-about">×</button>
+        <p class="eyebrow">THE LEGEND</p>
+        <h2>A tiny hero.<br />An endless sky.</h2>
+        <p>Skybound Kingdom blends the joyful world of classic platform adventures with one-touch flying. Guide Pip between enchanted towers and collect every crown coin you can.</p>
+      </div>
+    </main>
+    <script type="module" src="/src/game.js"></script>
+  </body>
+</html>

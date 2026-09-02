@@ -1,0 +1,43 @@
+:root { color-scheme: dark; font-family: "DM Sans", sans-serif; --yellow:#ffc928; --ink:#07172b; }
+* { box-sizing: border-box; }
+html, body { margin:0; width:100%; height:100%; overflow:hidden; background:#071d39; }
+button { font:inherit; }
+#game-shell { position:relative; width:100%; height:100%; min-height:600px; overflow:hidden; isolation:isolate; background:linear-gradient(#62c9ff,#dff7ff); }
+#game { position:absolute; inset:0; width:100%; height:100%; }
+#game-shell::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg,rgba(5,25,52,.25),transparent 35%,transparent 70%,rgba(5,25,52,.1)); mix-blend-mode:multiply; z-index:1; }
+.topbar { position:absolute; z-index:10; top:0; left:0; width:100%; display:flex; align-items:center; justify-content:space-between; padding:25px clamp(28px,5vw,80px); }
+.brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:white; font-family:"Baloo 2"; font-weight:700; font-size:15px; line-height:.9; letter-spacing:1.5px; text-shadow:0 2px 10px #035585; }
+.brand b { color:var(--yellow); font-size:17px; }
+.brand-mark { width:42px; height:42px; display:grid; place-items:center; border:3px solid white; border-radius:14px; font-size:25px; transform:rotate(-5deg); }
+nav { display:flex; gap:38px; }
+.nav-link { border:0; background:transparent; color:rgba(255,255,255,.72); letter-spacing:2px; font-size:12px; font-weight:800; cursor:pointer; padding:12px 2px; position:relative; }
+.nav-link.active, .nav-link:hover { color:white; }
+.nav-link.active::after { content:""; position:absolute; height:3px; background:var(--yellow); border-radius:4px; left:0; right:0; bottom:4px; }
+.sound-controls { display:flex; gap:10px; }
+.icon-button { width:40px; height:40px; border:1px solid rgba(255,255,255,.35); border-radius:50%; background:rgba(6,40,75,.15); backdrop-filter:blur(8px); color:white; cursor:pointer; font-size:18px; }
+.hero, .game-over { position:absolute; z-index:5; top:50%; left:clamp(30px,8vw,130px); transform:translateY(-47%); color:white; }
+.eyebrow { margin:0 0 13px; letter-spacing:3.4px; font-size:11px; font-weight:800; color:#dff6ff; }
+.eyebrow span { color:var(--yellow); margin-right:8px; }
+h1, h2 { font-family:"Baloo 2",sans-serif; font-weight:800; line-height:.86; letter-spacing:-2px; margin:0; text-shadow:0 5px 25px rgba(4,42,75,.25); }
+h1 { font-size:clamp(58px,7.1vw,112px); }
+h1 em, h2 em { color:var(--yellow); font-style:normal; }
+.intro { line-height:1.7; font-size:14px; color:rgba(255,255,255,.86); margin:25px 0; text-shadow:0 2px 8px #337da6; }
+.play-button { min-width:185px; padding:16px 20px 16px 25px; border:0; border-radius:7px; background:var(--yellow); color:#4d3300; box-shadow:0 8px 0 #d39100,0 14px 30px rgba(72,50,0,.25); font-family:"Baloo 2"; font-weight:800; font-size:14px; letter-spacing:1.2px; cursor:pointer; transition:.18s; }
+.play-button span { float:right; font-size:22px; line-height:16px; }
+.play-button:hover { transform:translateY(-3px); box-shadow:0 11px 0 #d39100,0 18px 35px rgba(72,50,0,.28); }
+.play-button:active { transform:translateY(5px); box-shadow:0 3px 0 #d39100; }
+.hint { display:flex; align-items:center; gap:9px; margin-top:26px; font-size:10px; letter-spacing:1px; color:rgba(255,255,255,.7); }
+kbd,.mouse { border:1px solid rgba(255,255,255,.45); border-radius:4px; padding:5px 11px; color:white; box-shadow:0 2px 0 rgba(0,30,60,.3); }
+.mouse { padding:4px 7px; border-radius:9px; }
+footer { position:absolute; bottom:20px; left:clamp(28px,5vw,80px); right:clamp(28px,5vw,80px); z-index:4; display:flex; justify-content:space-between; font-size:9px; letter-spacing:2px; color:rgba(255,255,255,.62); }
+.pulse { display:inline-block; width:6px; height:6px; border-radius:50%; background:#58ed87; box-shadow:0 0 8px #58ed87; margin-right:8px; }
+.hidden { opacity:0!important; pointer-events:none!important; visibility:hidden!important; }
+.hero, .game-over, .hud { transition:opacity .35s, transform .35s; }
+.hud { position:absolute; z-index:7; top:85px; left:50%; transform:translateX(-50%); color:white; display:flex; align-items:center; gap:25px; text-shadow:0 3px 8px #164766; }
+.score-block { text-align:center; }.score-block small { display:block; letter-spacing:3px; font-size:9px; }.score-block strong { font:800 42px/1 "Baloo 2"; }
+.coin-block { background:rgba(4,40,70,.3); border:1px solid rgba(255,255,255,.3); border-radius:25px; padding:8px 15px; }.coin-icon { color:var(--yellow); margin-right:8px; }
+.progress { position:fixed; top:0; left:0; width:100vw; height:4px; background:rgba(255,255,255,.15); }.progress span { display:block; width:0%; height:100%; background:var(--yellow); transition:width .2s; }
+.game-over { max-width:600px; }.game-over h2 { font-size:clamp(56px,7vw,100px); }.game-over>p:not(.eyebrow) { margin:25px 0; letter-spacing:2px; }
+.about-panel { position:absolute; z-index:20; width:min(500px,calc(100% - 40px)); right:5vw; top:50%; transform:translateY(-50%); background:rgba(4,31,57,.88); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(22px); border-radius:24px; padding:50px; color:white; box-shadow:0 30px 90px rgba(0,0,0,.3); transition:.3s; }
+.about-panel h2 { font-size:48px; color:var(--yellow); margin-bottom:25px; }.about-panel p:last-child { line-height:1.8; color:#cbeeff; }.about-panel button { position:absolute; right:20px; top:15px; border:0; background:none; color:white; font-size:30px; cursor:pointer; }
+@media(max-width:700px){ nav{display:none}.hero{left:25px; right:20px}.intro br{display:none}h1{font-size:56px}.topbar{padding:18px 22px}.sound-controls .icon-button:first-child{display:none}footer p:last-child{display:none}.hero{top:54%}.brand-mark{width:36px;height:36px}.game-over{left:25px}.game-over h2{font-size:55px} }
